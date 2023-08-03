@@ -12,7 +12,7 @@
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="/public/styles/styles.css" />
   </head>
 
   <body>
@@ -30,17 +30,25 @@
             <ul class="list-group"></ul>
           </div>
         </div>
-        <div class="col-8">
+        
+        <div class="note-title py-5 col-8">
           <input
-            class="note-title"
+            class="w-100"
+            name="noteTitle"
             placeholder="Note Title"
             maxlength="28"
+            value= ""
             type="text"
           />
-          <textarea class="note-textarea" placeholder="Note Text"></textarea>
+          <textarea class="note-textarea py-3 w-100"
+          name="noteText"
+          value = ""
+          placeholder="Note Text"
+          ></textarea>
         </div>
+
       </div>
     </div>
-    <script src="/assets/js/index.js"></script>
+    <script src="./scripts/notes.js"></script>
   </body>
 </html>

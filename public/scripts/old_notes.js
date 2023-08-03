@@ -25,13 +25,36 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
-const getNotes = () =>
-  fetch('/api/notes', {
+const emptyForm = () => {
+  noteTitle.value = "";
+  noteText.value = "";
+};
+
+// const getNotes = () =>
+  // fetch('/api/notes', {
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  // });
+
+  const getNotes = () =>
+  fetch('/api', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+    body: JSON.stringify(note),
+  })
+    .then((res) => res.json())
+    .then((note) => {
+      console.log('Succesful GET request:', note);
+      return (note) })
+    .catch((error) => {
+      console.error('Error: in get notes');
+     })
+    ;
+  
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -40,6 +63,15 @@ const saveNote = (note) =>
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
+  })
+  .then((res) => res.json())
+  .then((note) => {
+    console.log('Succesful POST request:', note);
+    emptyForm();
+    return note;
+  })
+  .catch((error) => {
+    console.error('Error in POST request:', error);
   });
 
 const deleteNote = (id) =>
@@ -117,8 +149,8 @@ const handleRenderSaveBtn = () => {
 };
 
 // Render the list of note titles
-const renderNoteList = async (notes) => {
-  let jsonNotes = await notes.json();
+const renderNoteList = async (note) => {
+  let jsonNote = await note.json();
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
@@ -154,11 +186,11 @@ const renderNoteList = async (notes) => {
     return liEl;
   };
 
-  if (jsonNotes.length === 0) {
+  if (jsonNote.length === 0) {
     noteListItems.push(createLi('No saved Notes', false));
   }
 
-  jsonNotes.forEach((note) => {
+  jsonNote.forEach((note) => {
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
 
