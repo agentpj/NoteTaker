@@ -20,25 +20,21 @@ body {
 .note-title {
   color: #000000;
   width: 100%;
-  /* outline: none;
-  border: none; */
-  margin-top: 30px;
-  font-size: 100%;
-  font-weight: bolder;
-  font-size: 50rem; */
+  outline: none;
+  border: none;
 }
 
-/* .note-textarea {
+.note-textarea {
   resize: none;
-  height: calc(100% - 63px);
-  padding-top: 20px;
+  height:  100px;
+  padding-top: 15px;
 }
 
 .note-title {
-  height: 100px;
+  height: 50px;
   margin-top: 20px;
-  font-size: 10rem; */
-/* } */
+  font-size: 3rem;
+}
 
 .note-title:read-only,
 .note-textarea:read-only {
@@ -66,7 +62,7 @@ body {
 
 .list-item-title {
   display: inline-block;
-  width: 75%;
+  width: 100%;
 }
 
 .list-container i {
