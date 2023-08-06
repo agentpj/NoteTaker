@@ -18,10 +18,8 @@ const allNotes = require('./db/db.json');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// our middleware
 app.use(express.static('public'));
 
-//going to ignore the first array because it's just a dummy
 app.get('/api/notes', (req, res) => {
   res.json(allNotes);
 });
@@ -58,7 +56,6 @@ function createNewNote(body, notesArray) {
 app.post('/api/notes', (req, res) => {
   const newNote = createNewNote(req.body, allNotes);
   res.json(newNote);
-  console.log('post in server ', newNote);
 });
 
 function deleteNote(id, notesArray) {
@@ -69,7 +66,7 @@ function deleteNote(id, notesArray) {
           notesArray.splice(i, 1);
           fs.writeFileSync(
               path.join(__dirname, './db/db.json'),
-              JSON.stringify(notesArray, null, 2)
+              JSON.stringify(notesArray, null, 3)
           );
 
           break;
