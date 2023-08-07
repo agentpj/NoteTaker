@@ -35,4 +35,6 @@ https://github.com/agentpj/NoteTaker
 Screencastify link:
 https://drive.google.com/file/d/1c8ZgzR2xQzKseRa9tBYHJEIr9aEZFZIm/view
 
-Heroku:
+Heroku git url:
+https://git.heroku.com/secure-brook-71656.git
+
