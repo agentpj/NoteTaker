@@ -1,37 +1,37 @@
 [
    {
-      "title": "debug code",
-      "text": "here we go",
+      "title": "Storage room",
+      "text": "Clean up",
       "id": 51
    },
    {
-      "title": "dogs out",
-      "text": "          let them out",
-      "id": 1
-   },
-   {
-      "title": "burger ",
-      "text": "fries",
-      "id": 22
-   },
-   {
-      "title": "create files",
-      "text": "in node",
+      "title": "Files",
+      "text": "Organize in cabinet",
       "id": "436c"
    },
    {
-      "title": "clean",
-      "text": "wash laundry",
-      "id": "1c7e"
+      "title": "Supplies",
+      "text": "Order paper and stapler",
+      "id": "d31f"
    },
    {
-      "title": "eat fish",
-      "text": "       do here   ",
-      "id": "ee0d"
+      "title": "Increase sales",
+      "text": "Hire analyst",
+      "id": "7ba6"
    },
    {
-      "title": "plan a party",
-      "text": "order cake",
-      "id": "4639"
+      "title": "Buy Lotto ticket",
+      "text": "To enable purchase of a better note taker",
+      "id": "cd8c"
+   },
+   {
+      "title": "Plan open house",
+      "text": "Contact event coordinator",
+      "id": "ebc0"
+   },
+   {
+      "title": "Contact security company",
+      "text": "Set up alarm",
+      "id": "4fe5"
    }
 ]

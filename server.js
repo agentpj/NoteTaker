@@ -1,29 +1,22 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-//const { clog } = require('./middleware/clog');
-//const api = require('./routes/index.js');
 
 const PORT = process.env.port || 3001;
 
 const app = express();
 
 // this is where our data lives
-const allNotes = require('./db/db.json');
-
-// Import custom middleware, "cLog"
-//app.use(clog);
+const dataNotes = require('./db/db.json');
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static('public'));
 
 app.get('/api/notes', (req, res) => {
-  res.json(allNotes);
+  res.json(dataNotes);
 });
-
 
 // GET Route for notes page
 app.get('/notes', (req, res) => {
@@ -54,28 +47,26 @@ function createNewNote(body, notesArray) {
 }
 
 app.post('/api/notes', (req, res) => {
-  const newNote = createNewNote(req.body, allNotes);
+  const newNote = createNewNote(req.body, dataNotes);
   res.json(newNote);
 });
 
 function deleteNote(id, notesArray) {
   for (let i = 0; i < notesArray.length; i++) {
       let note = notesArray[i];
-
       if (note.id == id) {
           notesArray.splice(i, 1);
           fs.writeFileSync(
               path.join(__dirname, './db/db.json'),
               JSON.stringify(notesArray, null, 3)
           );
-
           break;
       }
   }
 }
 
 app.delete('/api/notes/:id', (req, res) => {
-  deleteNote(req.params.id, allNotes);
+  deleteNote(req.params.id, dataNotes);
   res.json(true);
 });
 
